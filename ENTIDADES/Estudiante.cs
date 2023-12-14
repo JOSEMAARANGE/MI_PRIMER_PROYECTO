@@ -72,10 +72,7 @@ namespace LOGICA
             }
         }
 
-        public static implicit operator Estudiante(BindingSource v)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public class EstudianteList : List<Estudiante>
         {

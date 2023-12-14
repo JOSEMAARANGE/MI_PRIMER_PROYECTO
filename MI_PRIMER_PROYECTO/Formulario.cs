@@ -43,6 +43,7 @@ namespace MI_PRIMER_PROYECTO
 
         public void Nuevoestudiante()
         {
+          
             //creamos el nuevo estudiante
             _estudiante = new Estudiante();
             //enlazamos los controles
@@ -58,7 +59,6 @@ namespace MI_PRIMER_PROYECTO
         public void Form1_Load(object sender, EventArgs e)
         {
 
-            
             DniTextbox.Focus();
             ModificarBotton.Enabled = false;
             Nuevoestudiante();
@@ -105,11 +105,18 @@ namespace MI_PRIMER_PROYECTO
             }
         }
 
+
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {
-            EstudianteBindingSource = estudianteEnEdicionBindingSource;
+            
+            estudianteGridView.Rows[fila].Cells[0].Value = DniTextbox.Text;
+            estudianteGridView.Rows[fila].Cells[1].Value = NombreTextbox.Text;
+            estudianteGridView.Rows[fila].Cells[2].Value = ApellidoTextbox.Text;
+            estudianteGridView.Rows[fila].Cells[3].Value = TelefonoTextbox.Text;
+            estudianteGridView.Rows[fila].Cells[4].Value = MateriasComboBox.Text;
+            estudianteGridView.Rows[fila].Cells[5].Value = FechaDeNacimientoDateTime.Text;
+            estudianteGridView.Rows[fila].Cells[6].Value = FechaDeInscripcionDateTime.Text;
 
-            EstudianteBindingSource.ResetBindings(true);
             try
             {
                 _estudiante.Validar();
@@ -120,7 +127,7 @@ namespace MI_PRIMER_PROYECTO
             {
                 MessageBox.Show(ez.Message);
 
-                
+
             }
             MessageBox.Show("Se modificaron los datos correctamente");
             estudianteGridView.Enabled = true;
@@ -136,6 +143,7 @@ namespace MI_PRIMER_PROYECTO
 
             if (result == DialogResult.Yes)
             {
+                this.estudianteGridView.ReadOnly = false;
                 AgregarBotton.Enabled = true;
 
                 fila = e.RowIndex; // Almacena el índice de la fila seleccionada
@@ -179,16 +187,21 @@ namespace MI_PRIMER_PROYECTO
         private void AgregarBotton_Click(object sender, EventArgs e)
         {
             
-
             // Verificar la acción a realizar
-            if (MateriasComboBox.Text == "MATEMATICA II")
+            if (MateriasComboBox.Text == "MATEMATICA II") 
             {               
                 DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?","Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.No)
+                if (dialogResult == DialogResult.Yes) 
+                { 
+                        MessageBox.Show("Registrado");
+   
+                }
+                else if (dialogResult == DialogResult.No)
                 {
+
                     return;
 
-                }
+                }  
 
             }
             else if (MateriasComboBox.Text == "MATEMATICA I")

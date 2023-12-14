@@ -36,6 +36,7 @@ namespace MI_PRIMER_PROYECTO
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formulario));
             this.DniTextbox = new System.Windows.Forms.TextBox();
+            this.estudianteEnEdicionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NombreTextbox = new System.Windows.Forms.TextBox();
             this.ApellidoTextbox = new System.Windows.Forms.TextBox();
             this.TelefonoTextbox = new System.Windows.Forms.TextBox();
@@ -45,12 +46,21 @@ namespace MI_PRIMER_PROYECTO
             this.TelefonoLabel = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.estudianteGridView = new System.Windows.Forms.DataGridView();
+            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MateriaActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDeNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDeInscripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MateriaCursada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstudianteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Logo = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MateriaCursadaTextBox = new System.Windows.Forms.TextBox();
+            this.MateriaCursadalabel = new System.Windows.Forms.Label();
             this.AprobadoComboBox = new System.Windows.Forms.ComboBox();
             this.AgregarBotton = new System.Windows.Forms.Button();
             this.CancelarBotton = new System.Windows.Forms.Button();
@@ -64,7 +74,6 @@ namespace MI_PRIMER_PROYECTO
             this.FechaDeNacimientoLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorEstudiante = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -76,26 +85,15 @@ namespace MI_PRIMER_PROYECTO
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.MateriaCursadalabel = new System.Windows.Forms.Label();
-            this.MateriaCursadaTextBox = new System.Windows.Forms.TextBox();
-            this.EstudianteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.estudianteEnEdicionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDeNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDeInscripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).BeginInit();
             this.Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEstudiante)).BeginInit();
             this.bindingNavigatorEstudiante.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // DniTextbox
@@ -106,6 +104,11 @@ namespace MI_PRIMER_PROYECTO
             this.DniTextbox.Size = new System.Drawing.Size(200, 20);
             this.DniTextbox.TabIndex = 0;
             this.DniTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DniTextbox_KeyPress);
+            // 
+            // estudianteEnEdicionBindingSource
+            // 
+            this.estudianteEnEdicionBindingSource.DataSource = typeof(LOGICA.Estudiante);
+            this.estudianteEnEdicionBindingSource.Filter = "";
             // 
             // NombreTextbox
             // 
@@ -191,6 +194,7 @@ namespace MI_PRIMER_PROYECTO
             // 
             this.estudianteGridView.AutoGenerateColumns = false;
             this.estudianteGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.estudianteGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.estudianteGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -235,6 +239,38 @@ namespace MI_PRIMER_PROYECTO
             this.estudianteGridView.TabIndex = 12;
             this.estudianteGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.estudianteGridView_CellDoubleClick);
             // 
+            // dniDataGridViewTextBoxColumn
+            // 
+            this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
+            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
+            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dniDataGridViewTextBoxColumn.Width = 48;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellidoDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefonoDataGridViewTextBoxColumn.Width = 74;
+            // 
             // MateriaActual
             // 
             this.MateriaActual.DataPropertyName = "MateriaActual";
@@ -243,6 +279,22 @@ namespace MI_PRIMER_PROYECTO
             this.MateriaActual.ReadOnly = true;
             this.MateriaActual.Width = 97;
             // 
+            // fechaDeNacimientoDataGridViewTextBoxColumn
+            // 
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaDeNacimiento";
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaDeNacimiento";
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.Name = "fechaDeNacimientoDataGridViewTextBoxColumn";
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.Width = 129;
+            // 
+            // fechaDeInscripcionDataGridViewTextBoxColumn
+            // 
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.DataPropertyName = "FechaDeInscripcion";
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.HeaderText = "FechaDeInscripcion";
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.Name = "fechaDeInscripcionDataGridViewTextBoxColumn";
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.Width = 127;
+            // 
             // MateriaCursada
             // 
             this.MateriaCursada.DataPropertyName = "MateriaCursada";
@@ -250,6 +302,10 @@ namespace MI_PRIMER_PROYECTO
             this.MateriaCursada.Name = "MateriaCursada";
             this.MateriaCursada.ReadOnly = true;
             this.MateriaCursada.Width = 106;
+            // 
+            // EstudianteBindingSource
+            // 
+            this.EstudianteBindingSource.DataSource = typeof(LOGICA.Estudiante);
             // 
             // Logo
             // 
@@ -316,6 +372,24 @@ namespace MI_PRIMER_PROYECTO
             this.groupBox1.Size = new System.Drawing.Size(420, 489);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // MateriaCursadaTextBox
+            // 
+            this.MateriaCursadaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.estudianteEnEdicionBindingSource, "MateriaCursada", true));
+            this.MateriaCursadaTextBox.Location = new System.Drawing.Point(206, 289);
+            this.MateriaCursadaTextBox.Name = "MateriaCursadaTextBox";
+            this.MateriaCursadaTextBox.Size = new System.Drawing.Size(200, 20);
+            this.MateriaCursadaTextBox.TabIndex = 23;
+            // 
+            // MateriaCursadalabel
+            // 
+            this.MateriaCursadalabel.AutoSize = true;
+            this.MateriaCursadalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MateriaCursadalabel.Location = new System.Drawing.Point(10, 289);
+            this.MateriaCursadalabel.Name = "MateriaCursadalabel";
+            this.MateriaCursadalabel.Size = new System.Drawing.Size(155, 16);
+            this.MateriaCursadalabel.TabIndex = 22;
+            this.MateriaCursadalabel.Text = "MATERIA CURSADA:";
             // 
             // AprobadoComboBox
             // 
@@ -484,7 +558,7 @@ namespace MI_PRIMER_PROYECTO
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigatorEstudiante.Location = new System.Drawing.Point(645, 515);
+            this.bindingNavigatorEstudiante.Location = new System.Drawing.Point(649, 515);
             this.bindingNavigatorEstudiante.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigatorEstudiante.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigatorEstudiante.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -572,81 +646,6 @@ namespace MI_PRIMER_PROYECTO
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // MateriaCursadalabel
-            // 
-            this.MateriaCursadalabel.AutoSize = true;
-            this.MateriaCursadalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MateriaCursadalabel.Location = new System.Drawing.Point(10, 289);
-            this.MateriaCursadalabel.Name = "MateriaCursadalabel";
-            this.MateriaCursadalabel.Size = new System.Drawing.Size(155, 16);
-            this.MateriaCursadalabel.TabIndex = 22;
-            this.MateriaCursadalabel.Text = "MATERIA CURSADA:";
-            // 
-            // MateriaCursadaTextBox
-            // 
-            this.MateriaCursadaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.estudianteEnEdicionBindingSource, "MateriaCursada", true));
-            this.MateriaCursadaTextBox.Location = new System.Drawing.Point(206, 289);
-            this.MateriaCursadaTextBox.Name = "MateriaCursadaTextBox";
-            this.MateriaCursadaTextBox.Size = new System.Drawing.Size(200, 20);
-            this.MateriaCursadaTextBox.TabIndex = 23;
-            // 
-            // EstudianteBindingSource
-            // 
-            this.EstudianteBindingSource.DataSource = typeof(LOGICA.Estudiante);
-            // 
-            // estudianteEnEdicionBindingSource
-            // 
-            this.estudianteEnEdicionBindingSource.DataSource = typeof(LOGICA.Estudiante);
-            this.estudianteEnEdicionBindingSource.Filter = "";
-            // 
-            // dniDataGridViewTextBoxColumn
-            // 
-            this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
-            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
-            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
-            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dniDataGridViewTextBoxColumn.Width = 48;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.apellidoDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telefonoDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // fechaDeNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaDeNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaDeNacimiento";
-            this.fechaDeNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaDeNacimiento";
-            this.fechaDeNacimientoDataGridViewTextBoxColumn.Name = "fechaDeNacimientoDataGridViewTextBoxColumn";
-            this.fechaDeNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaDeNacimientoDataGridViewTextBoxColumn.Width = 129;
-            // 
-            // fechaDeInscripcionDataGridViewTextBoxColumn
-            // 
-            this.fechaDeInscripcionDataGridViewTextBoxColumn.DataPropertyName = "FechaDeInscripcion";
-            this.fechaDeInscripcionDataGridViewTextBoxColumn.HeaderText = "FechaDeInscripcion";
-            this.fechaDeInscripcionDataGridViewTextBoxColumn.Name = "fechaDeInscripcionDataGridViewTextBoxColumn";
-            this.fechaDeInscripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaDeInscripcionDataGridViewTextBoxColumn.Width = 127;
-            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,7 +659,9 @@ namespace MI_PRIMER_PROYECTO
             this.Name = "Formulario";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).EndInit();
             this.Logo.ResumeLayout(false);
             this.Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -668,12 +669,9 @@ namespace MI_PRIMER_PROYECTO
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEstudiante)).EndInit();
             this.bindingNavigatorEstudiante.ResumeLayout(false);
             this.bindingNavigatorEstudiante.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,7 +716,6 @@ namespace MI_PRIMER_PROYECTO
         private System.Windows.Forms.Label MateriasLabel;
         private System.Windows.Forms.ComboBox MateriasComboBox;
         private System.Windows.Forms.Label lblMateriaAprobado;
-        private System.Windows.Forms.BindingSource materiasBindingSource;
         private System.Windows.Forms.Button CancelarBotton;
         private System.Windows.Forms.Button AgregarBotton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
