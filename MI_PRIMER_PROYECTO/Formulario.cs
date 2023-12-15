@@ -8,11 +8,13 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LOGICA.Estudiante;
 using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -26,8 +28,7 @@ namespace MI_PRIMER_PROYECTO
 
         EstudianteList _estudianteList;
         private int fila;
-
-
+        private IEnumerable<object> lstCentral;
 
         public Formulario()
         {
@@ -105,51 +106,23 @@ namespace MI_PRIMER_PROYECTO
             }
         }
 
-
+        
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {
+
+
             
-            estudianteGridView.Rows[fila].Cells[0].Value = DniTextbox.Text;
-            estudianteGridView.Rows[fila].Cells[1].Value = NombreTextbox.Text;
-            estudianteGridView.Rows[fila].Cells[2].Value = ApellidoTextbox.Text;
-            estudianteGridView.Rows[fila].Cells[3].Value = TelefonoTextbox.Text;
-            estudianteGridView.Rows[fila].Cells[4].Value = MateriasComboBox.Text;
-            estudianteGridView.Rows[fila].Cells[5].Value = FechaDeNacimientoDateTime.Text;
-            estudianteGridView.Rows[fila].Cells[6].Value = FechaDeInscripcionDateTime.Text;
-
-            try
-            {
-                _estudiante.Validar();
-
-
-            }
-            catch (Exception ez)
-            {
-                MessageBox.Show(ez.Message);
-
-
-            }
-            MessageBox.Show("Se modificaron los datos correctamente");
-            estudianteGridView.Enabled = true;
-            Nuevoestudiante();
         }
 
 
-        private void estudianteGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-
-            DialogResult result = MessageBox.Show("Se procedera a cargar los campos para su modificacion ?", "Confirma?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("Desea cancelar los cambios?", "Confirmacion de cacelacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                this.estudianteGridView.ReadOnly = false;
-                AgregarBotton.Enabled = true;
-
-                fila = e.RowIndex; // Almacena el índice de la fila seleccionada
-
-                fila = estudianteGridView.CurrentRow.Index;
-
                 DniTextbox.Text = estudianteGridView.Rows[fila].Cells[0].Value.ToString();
                 NombreTextbox.Text = estudianteGridView.Rows[fila].Cells[1].Value.ToString();
                 ApellidoTextbox.Text = estudianteGridView.Rows[fila].Cells[2].Value.ToString();
@@ -158,30 +131,17 @@ namespace MI_PRIMER_PROYECTO
                 FechaDeNacimientoDateTime.Text = estudianteGridView.Rows[fila].Cells[5].Value.ToString();
                 FechaDeInscripcionDateTime.Text = estudianteGridView.Rows[fila].Cells[6].Value.ToString();
 
-                ModificarBotton.Enabled = true;
-
-
-            }
-            else if (result == DialogResult.No)
-
-            {   // AL PONER NO, NO SE CARGAN LOS DATOS A LOS TEXTBOX A TRAVES DE BINDINGSOURCE ENLAZADOS
-                estudianteGridView.CancelEdit();
+                estudianteGridView.Enabled = true;
+                Nuevoestudiante();
 
             }
-        }
+            else if (dialogResult == DialogResult.No)
+            {
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DniTextbox.Text = estudianteGridView.Rows[fila].Cells[0].Value.ToString();
-            NombreTextbox.Text = estudianteGridView.Rows[fila].Cells[1].Value.ToString();
-            ApellidoTextbox.Text = estudianteGridView.Rows[fila].Cells[2].Value.ToString();
-            TelefonoTextbox.Text = estudianteGridView.Rows[fila].Cells[3].Value.ToString();
-            MateriasComboBox.Text = estudianteGridView.Rows[fila].Cells[4].Value.ToString();
-            FechaDeNacimientoDateTime.Text = estudianteGridView.Rows[fila].Cells[5].Value.ToString();
-            FechaDeInscripcionDateTime.Text = estudianteGridView.Rows[fila].Cells[6].Value.ToString();
+                return;
 
-            estudianteGridView.Enabled = true;
-            Nuevoestudiante();
+            }
+           
         }
 
         private void AgregarBotton_Click(object sender, EventArgs e)
@@ -244,5 +204,38 @@ namespace MI_PRIMER_PROYECTO
             Nuevoestudiante();
         }
 
+        private void estudianteGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Se procedera a cargar los campos para su modificacion ?", "Confirma?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.estudianteGridView.ReadOnly = false;
+                AgregarBotton.Enabled = true;
+
+                fila = e.RowIndex; // Almacena el índice de la fila seleccionada
+
+                fila = estudianteGridView.CurrentRow.Index;
+
+                DniTextbox.Text = estudianteGridView.Rows[fila].Cells[0].Value.ToString();
+                NombreTextbox.Text = estudianteGridView.Rows[fila].Cells[1].Value.ToString();
+                ApellidoTextbox.Text = estudianteGridView.Rows[fila].Cells[2].Value.ToString();
+                TelefonoTextbox.Text = estudianteGridView.Rows[fila].Cells[3].Value.ToString();
+                MateriasComboBox.Text = estudianteGridView.Rows[fila].Cells[4].Value.ToString();
+                FechaDeNacimientoDateTime.Text = estudianteGridView.Rows[fila].Cells[5].Value.ToString();
+                FechaDeInscripcionDateTime.Text = estudianteGridView.Rows[fila].Cells[6].Value.ToString();
+
+
+                ModificarBotton.Enabled = true;
+
+
+            }
+            else if (result == DialogResult.No)
+
+            {   // AL PONER NO, NO SE CARGAN LOS DATOS A LOS TEXTBOX A TRAVES DE BINDINGSOURCE ENLAZADOS
+                estudianteGridView.CancelEdit();
+
+            }
+        }
     }
 }
