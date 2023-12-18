@@ -192,6 +192,8 @@ namespace MI_PRIMER_PROYECTO
             // 
             // estudianteGridView
             // 
+            this.estudianteGridView.AllowUserToAddRows = false;
+            this.estudianteGridView.AllowUserToDeleteRows = false;
             this.estudianteGridView.AutoGenerateColumns = false;
             this.estudianteGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.estudianteGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -225,6 +227,7 @@ namespace MI_PRIMER_PROYECTO
             this.estudianteGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.estudianteGridView.Location = new System.Drawing.Point(428, 72);
             this.estudianteGridView.Name = "estudianteGridView";
+            this.estudianteGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,6 +246,7 @@ namespace MI_PRIMER_PROYECTO
             this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
             this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
             this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
             this.dniDataGridViewTextBoxColumn.Width = 48;
             // 
             // nombreDataGridViewTextBoxColumn
@@ -250,6 +254,7 @@ namespace MI_PRIMER_PROYECTO
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreDataGridViewTextBoxColumn.Width = 69;
             // 
             // apellidoDataGridViewTextBoxColumn
@@ -257,6 +262,7 @@ namespace MI_PRIMER_PROYECTO
             this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
             this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             this.apellidoDataGridViewTextBoxColumn.Width = 69;
             // 
             // telefonoDataGridViewTextBoxColumn
@@ -264,6 +270,7 @@ namespace MI_PRIMER_PROYECTO
             this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
             this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
             this.telefonoDataGridViewTextBoxColumn.Width = 74;
             // 
             // MateriaActual
@@ -271,6 +278,7 @@ namespace MI_PRIMER_PROYECTO
             this.MateriaActual.DataPropertyName = "MateriaActual";
             this.MateriaActual.HeaderText = "MateriaActual";
             this.MateriaActual.Name = "MateriaActual";
+            this.MateriaActual.ReadOnly = true;
             this.MateriaActual.Width = 97;
             // 
             // fechaDeNacimientoDataGridViewTextBoxColumn
@@ -278,6 +286,7 @@ namespace MI_PRIMER_PROYECTO
             this.fechaDeNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaDeNacimiento";
             this.fechaDeNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaDeNacimiento";
             this.fechaDeNacimientoDataGridViewTextBoxColumn.Name = "fechaDeNacimientoDataGridViewTextBoxColumn";
+            this.fechaDeNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaDeNacimientoDataGridViewTextBoxColumn.Width = 129;
             // 
             // fechaDeInscripcionDataGridViewTextBoxColumn
@@ -285,6 +294,7 @@ namespace MI_PRIMER_PROYECTO
             this.fechaDeInscripcionDataGridViewTextBoxColumn.DataPropertyName = "FechaDeInscripcion";
             this.fechaDeInscripcionDataGridViewTextBoxColumn.HeaderText = "FechaDeInscripcion";
             this.fechaDeInscripcionDataGridViewTextBoxColumn.Name = "fechaDeInscripcionDataGridViewTextBoxColumn";
+            this.fechaDeInscripcionDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaDeInscripcionDataGridViewTextBoxColumn.Width = 127;
             // 
             // MateriaCursada
@@ -292,6 +302,7 @@ namespace MI_PRIMER_PROYECTO
             this.MateriaCursada.DataPropertyName = "MateriaCursada";
             this.MateriaCursada.HeaderText = "MateriaCursada";
             this.MateriaCursada.Name = "MateriaCursada";
+            this.MateriaCursada.ReadOnly = true;
             this.MateriaCursada.Width = 106;
             // 
             // EstudianteBindingSource

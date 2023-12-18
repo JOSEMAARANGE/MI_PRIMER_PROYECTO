@@ -47,6 +47,9 @@ namespace MI_PRIMER_PROYECTO
           
             //creamos el nuevo estudiante
             _estudiante = new Estudiante();
+
+            _estudiante.EstudianteId = _estudianteList.Count() + 1;
+
             //enlazamos los controles
             estudianteEnEdicionBindingSource.DataSource = _estudiante;
         }
@@ -109,9 +112,18 @@ namespace MI_PRIMER_PROYECTO
         
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {
+            estudianteEnEdicionBindingSource.EndEdit();
+
+            var encontrado = _estudianteList.Where( estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
 
 
-            
+            encontrado = _estudiante;
+
+            //EstudianteBindingSource.ResetCurrentItem();
+            EstudianteBindingSource.DataSource = _estudianteList;
+
+            Nuevoestudiante();
+
         }
 
 
@@ -119,29 +131,7 @@ namespace MI_PRIMER_PROYECTO
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
-            DialogResult dialogResult = MessageBox.Show("Desea cancelar los cambios?", "Confirmacion de cacelacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                DniTextbox.Text = estudianteGridView.Rows[fila].Cells[0].Value.ToString();
-                NombreTextbox.Text = estudianteGridView.Rows[fila].Cells[1].Value.ToString();
-                ApellidoTextbox.Text = estudianteGridView.Rows[fila].Cells[2].Value.ToString();
-                TelefonoTextbox.Text = estudianteGridView.Rows[fila].Cells[3].Value.ToString();
-                MateriasComboBox.Text = estudianteGridView.Rows[fila].Cells[4].Value.ToString();
-                FechaDeNacimientoDateTime.Text = estudianteGridView.Rows[fila].Cells[5].Value.ToString();
-                FechaDeInscripcionDateTime.Text = estudianteGridView.Rows[fila].Cells[6].Value.ToString();
-
-                estudianteGridView.Enabled = true;
-                Nuevoestudiante();
-
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-
-                return;
-
-            }
-           
+            Nuevoestudiante();
         }
 
         private void AgregarBotton_Click(object sender, EventArgs e)
@@ -164,10 +154,7 @@ namespace MI_PRIMER_PROYECTO
                 }  
 
             }
-            else if (MateriasComboBox.Text == "MATEMATICA I")
-            {
-                MessageBox.Show("Registrado");
-            }
+        
             
             //Antes de agregar, validamos el estudiante para que todo este bien.
             try
@@ -210,32 +197,23 @@ namespace MI_PRIMER_PROYECTO
 
             if (result == DialogResult.Yes)
             {
-                this.estudianteGridView.ReadOnly = false;
-                AgregarBotton.Enabled = true;
 
-                fila = e.RowIndex; // Almacena el índice de la fila seleccionada
+                //creamos el nuevo estudiante
+                var estudianteEnGrilla = (Estudiante)EstudianteBindingSource.Current;
 
-                fila = estudianteGridView.CurrentRow.Index;
-
-                DniTextbox.Text = estudianteGridView.Rows[fila].Cells[0].Value.ToString();
-                NombreTextbox.Text = estudianteGridView.Rows[fila].Cells[1].Value.ToString();
-                ApellidoTextbox.Text = estudianteGridView.Rows[fila].Cells[2].Value.ToString();
-                TelefonoTextbox.Text = estudianteGridView.Rows[fila].Cells[3].Value.ToString();
-                MateriasComboBox.Text = estudianteGridView.Rows[fila].Cells[4].Value.ToString();
-                FechaDeNacimientoDateTime.Text = estudianteGridView.Rows[fila].Cells[5].Value.ToString();
-                FechaDeInscripcionDateTime.Text = estudianteGridView.Rows[fila].Cells[6].Value.ToString();
-
+                _estudiante = (Estudiante)((ICloneable) EstudianteBindingSource.Current).Clone();
+                               
+                //enlazamos los controles
+                estudianteEnEdicionBindingSource.DataSource = _estudiante;
+                
 
                 ModificarBotton.Enabled = true;
 
-
             }
-            else if (result == DialogResult.No)
-
-            {   // AL PONER NO, NO SE CARGAN LOS DATOS A LOS TEXTBOX A TRAVES DE BINDINGSOURCE ENLAZADOS
-                estudianteGridView.CancelEdit();
-
-            }
+           
         }
+
+       
+
     }
 }

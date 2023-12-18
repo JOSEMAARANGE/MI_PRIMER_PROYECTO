@@ -24,8 +24,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 namespace LOGICA
 {
 
-    public class Estudiante
+    public class Estudiante : ICloneable
     {
+        public int EstudianteId { get; set; }
         public string Dni { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -36,9 +37,27 @@ namespace LOGICA
         public string MateriaCursada { get; set; }
         public string MateriaAprobada { get; private set; }
 
+        public object Clone()
+        {
+            var clon = new Estudiante
+            {
+                EstudianteId = EstudianteId,
+                Dni = Dni,
+                Nombre = Nombre,
+                Apellido = Apellido,
+                Telefono = Telefono,
+                MateriaActual = MateriaActual,
+                FechaDeNacimiento = FechaDeNacimiento,  
+                FechaDeInscripcion = FechaDeInscripcion,   
+                MateriaCursada = MateriaCursada,
+                MateriaAprobada = MateriaAprobada
+            };
+
+            return clon;
+        }
+
         public int Edad()
         {
-
             // Obtengo la diferencia en años.
 
             int edad = DateTime.Today.Year - FechaDeNacimiento.Year;
@@ -68,8 +87,11 @@ namespace LOGICA
 
             if (Edad() < 21)
             {
+
                 throw new Exception("Es menor a 21 años, imposible continuar");
             }
+
+
         }
 
         
@@ -78,10 +100,10 @@ namespace LOGICA
         {
             public int CantidadPorMateria(string materia)
             {
+
+              
                 return 0;
             }
-
-
         }
 
     }
