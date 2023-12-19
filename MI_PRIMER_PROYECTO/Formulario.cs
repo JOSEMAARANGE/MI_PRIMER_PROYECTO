@@ -23,6 +23,7 @@ namespace MI_PRIMER_PROYECTO
 
     public partial class Formulario : Form
     {
+        
 
         Estudiante _estudiante;
 
@@ -115,52 +116,82 @@ namespace MI_PRIMER_PROYECTO
             estudianteEnEdicionBindingSource.EndEdit();
 
             var encontrado = _estudianteList.Where( estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
-
-
+           
+            
             encontrado = _estudiante;
 
-            //EstudianteBindingSource.ResetCurrentItem();
-            EstudianteBindingSource.DataSource = _estudianteList;
+            //DialogResult dialogResult = MessageBox.Show("Desea realizar las modificaciones?", "Modificar Estudiante", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (dialogResult == DialogResult.Yes)
+            //{
 
+            _estudiante.Validar();
+
+            EstudianteBindingSource.ResetBindings(false);
+            EstudianteBindingSource.DataSource = _estudiante;
+             //_estudiante.Validar();
+            //EstudianteBindingSource.ResetCurrentItem();
+            //EstudianteBindingSource.DataSource = encontrado;
             Nuevoestudiante();
 
         }
 
-
-       
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Nuevoestudiante();
+            DialogResult dialogResult = MessageBox.Show("Desea cancelar las modificaciones?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Nuevoestudiante();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+                return;  
+
+            }
+            
         }
 
         private void AgregarBotton_Click(object sender, EventArgs e)
         {
-            
+
             // Verificar la acción a realizar
             if (MateriasComboBox.Text == "MATEMATICA II") 
-            {               
-                DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?","Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes) 
-                { 
-                        MessageBox.Show("Registrado");
-   
-                }
-                else if (dialogResult == DialogResult.No)
+            {
+                DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?", "Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                foreach (DataGridViewRow Row in estudianteGridView.Rows)
                 {
+                  
+                    string valor = Convert.ToString(Row.Cells["Dni"].Value);
+                    string valor2 = Convert.ToString(Row.Cells["MateriaCursada"].Value);
 
-                    return;
+                    if (valor == DniTextbox.Text && valor2 == MateriaCursadaTextBox.Text && dialogResult == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Registrado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe tener MATEMATICAS I aprobada");
+                    }
+                }
 
-                }  
 
+
+                //if (dialogResult == DialogResult.Yes) 
+                //{ 
+                //        MessageBox.Show("Registrado"); 
+                //}
+                //else if (dialogResult == DialogResult.No)
+                //{
+                //    return;
+                //}  
             }
-        
             
+
             //Antes de agregar, validamos el estudiante para que todo este bien.
             try
             {
                 _estudiante.Validar();
-
 
             }
             catch (Exception ez)
@@ -169,21 +200,18 @@ namespace MI_PRIMER_PROYECTO
 
                 return;
             }
-            if (AprobadoComboBox.Text == "SI")
+            if (AprobadoComboBox.Text == "SI" )
             {
                 MateriaCursadaTextBox.Text = MateriasComboBox.Text;
                 MateriasComboBox.Text = null;
 
                 MessageBox.Show("Coloco materia aprobada, queda en Materia Cursada");
-
-
             }
             else
             {
-
                 MessageBox.Show("Materia no aprobada, queda en Materia actual");
-
             }
+
             //Se valido correctamente, por lo que agregamos el estudiante a la "grilla"
             estudianteEnEdicionBindingSource.EndEdit();
             EstudianteBindingSource.Add(_estudiante);
@@ -212,8 +240,6 @@ namespace MI_PRIMER_PROYECTO
             }
            
         }
-
-       
 
     }
 }

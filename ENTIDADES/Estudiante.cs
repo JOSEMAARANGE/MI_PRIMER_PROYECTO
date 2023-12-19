@@ -90,7 +90,14 @@ namespace LOGICA
 
                 throw new Exception("Es menor a 21 años, imposible continuar");
             }
+           
+         
 
+            if (MateriaCursada == "MATEMATICAS II")
+            {
+
+                throw new Exception("Debe tener aprobada MATEMATICAS I");
+            }
 
         }
 
@@ -100,8 +107,8 @@ namespace LOGICA
         {
             public int CantidadPorMateria(string materia)
             {
+                string[] materias = { "Lengua", "Matemática I", "Matemática II" };
 
-              
                 return 0;
             }
         }
