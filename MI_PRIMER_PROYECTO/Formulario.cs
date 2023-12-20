@@ -116,21 +116,14 @@ namespace MI_PRIMER_PROYECTO
             estudianteEnEdicionBindingSource.EndEdit();
 
             var encontrado = _estudianteList.Where( estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
-           
-            
+
+ 
             encontrado = _estudiante;
 
-            //DialogResult dialogResult = MessageBox.Show("Desea realizar las modificaciones?", "Modificar Estudiante", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dialogResult == DialogResult.Yes)
-            //{
+            EstudianteBindingSource.DataSource = _estudiante;
 
             _estudiante.Validar();
 
-            EstudianteBindingSource.ResetBindings(false);
-            EstudianteBindingSource.DataSource = _estudiante;
-             //_estudiante.Validar();
-            //EstudianteBindingSource.ResetCurrentItem();
-            //EstudianteBindingSource.DataSource = encontrado;
             Nuevoestudiante();
 
         }
@@ -159,32 +152,20 @@ namespace MI_PRIMER_PROYECTO
             if (MateriasComboBox.Text == "MATEMATICA II") 
             {
                 DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?", "Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                foreach (DataGridViewRow Row in estudianteGridView.Rows)
+                if (dialogResult == DialogResult.Yes) 
+                
                 {
-                  
-                    string valor = Convert.ToString(Row.Cells["Dni"].Value);
-                    string valor2 = Convert.ToString(Row.Cells["MateriaCursada"].Value);
-
-                    if (valor == DniTextbox.Text && valor2 == MateriaCursadaTextBox.Text && dialogResult == DialogResult.Yes)
-                    {
-                        MessageBox.Show("Registrado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe tener MATEMATICAS I aprobada");
-                    }
+                     MessageBox.Show("Registrado");
+                        
+                 else
+                 {
+                     MessageBox.Show("Debe tener MATEMATICAS I aprobada");
+                 }
                 }
-
-
-
-                //if (dialogResult == DialogResult.Yes) 
-                //{ 
-                //        MessageBox.Show("Registrado"); 
-                //}
-                //else if (dialogResult == DialogResult.No)
-                //{
-                //    return;
-                //}  
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
             }
             
 

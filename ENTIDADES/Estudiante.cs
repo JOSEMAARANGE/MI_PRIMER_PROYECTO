@@ -78,13 +78,21 @@ namespace LOGICA
         public void Validar()
 
         {
-
-            if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
+            if (MateriaActual == "")
             {
-                throw new Exception("Debe llenar todos los campos");
+                _ = MateriaActual == "_";
+            }
+            else 
+            {
+                if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
+                {
+
+                    throw new Exception("Debe llenar todos los campos");
+                }
+
             }
 
-
+            
             if (Edad() < 21)
             {
 
