@@ -115,11 +115,10 @@ namespace MI_PRIMER_PROYECTO
         {
             estudianteEnEdicionBindingSource.EndEdit();
 
-            var encontrado = _estudianteList.Where( estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
-
- 
+            //enlazamos los controles
+            EstudianteBindingSource.DataSource = _estudiante;
+            var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
             encontrado = _estudiante;
-
             EstudianteBindingSource.DataSource = _estudiante;
 
             _estudiante.Validar();
@@ -152,17 +151,17 @@ namespace MI_PRIMER_PROYECTO
             if (MateriasComboBox.Text == "MATEMATICA II") 
             {
                 DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?", "Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes) 
-                
+                if (dialogResult == DialogResult.Yes)
+
                 {
-                     MessageBox.Show("Registrado");
-                        
+                    MessageBox.Show("Registrado");
+                 }
                  else
                  {
-                     MessageBox.Show("Debe tener MATEMATICAS I aprobada");
+                    MessageBox.Show("Debe tener MATEMATICAS I aprobada");
                  }
-                }
-                else if (dialogResult == DialogResult.No)
+                
+                if (dialogResult == DialogResult.No)
                 {
                     return;
                 }
@@ -222,5 +221,9 @@ namespace MI_PRIMER_PROYECTO
            
         }
 
+        private void estudianteGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }
     }
 }

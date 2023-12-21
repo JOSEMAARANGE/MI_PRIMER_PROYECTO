@@ -240,6 +240,7 @@ namespace MI_PRIMER_PROYECTO
             this.estudianteGridView.Size = new System.Drawing.Size(891, 430);
             this.estudianteGridView.TabIndex = 12;
             this.estudianteGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.estudianteGridView_CellContentDoubleClick);
+
             // 
             // dniDataGridViewTextBoxColumn
             // 

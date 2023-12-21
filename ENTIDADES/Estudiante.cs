@@ -109,8 +109,7 @@ namespace LOGICA
 
         }
 
-        
-
+       
         public class EstudianteList : List<Estudiante>
         {
             public int CantidadPorMateria(string materia)
