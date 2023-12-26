@@ -35,7 +35,7 @@ namespace LOGICA
         public DateTime FechaDeNacimiento { get; set; }
         public DateTime FechaDeInscripcion { get; set; }
         public string MateriaCursada { get; set; }
-        public string MateriaAprobada { get; private set; }
+        
 
         public object Clone()
         {
@@ -50,7 +50,7 @@ namespace LOGICA
                 FechaDeNacimiento = FechaDeNacimiento,  
                 FechaDeInscripcion = FechaDeInscripcion,   
                 MateriaCursada = MateriaCursada,
-                MateriaAprobada = MateriaAprobada
+                
             };
 
             return clon;
@@ -112,11 +112,32 @@ namespace LOGICA
        
         public class EstudianteList : List<Estudiante>
         {
-            public int CantidadPorMateria(string materia)
+            public class Materia
             {
-                string[] materias = { "Lengua", "Matemática I", "Matemática II" };
+                public List<Materia> Correlativas { get; set; }
 
-                return 0;
+                // Método para validar que la inscripción de la materia sea única
+                public bool ValidarInscripcionUnica(List<Materia> MateriaActual)
+                {
+                    if (MateriaActual.Any(m => m.MateriaActual == this.MateriaActual) && Dni.Any(m => m.Dni == this.Dni))
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+
+                // Método para validar la coherencia en las correlativas de materias
+                public bool ValidarCorrelativas(List<Materia> MateriaCursada)
+                {
+                    foreach (var correlativa in Correlativas)
+                    {
+                        if (!MateriaCursada.Any(m => m.MateriaCursada == correlativa.MateriaCursada))
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
             }
         }
 

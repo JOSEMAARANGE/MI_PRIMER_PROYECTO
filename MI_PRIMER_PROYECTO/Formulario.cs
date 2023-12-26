@@ -12,10 +12,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static LOGICA.Estudiante;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace MI_PRIMER_PROYECTO
@@ -30,6 +32,7 @@ namespace MI_PRIMER_PROYECTO
         EstudianteList _estudianteList;
         private int fila;
         private IEnumerable<object> lstCentral;
+       
 
         public Formulario()
         {
@@ -112,13 +115,16 @@ namespace MI_PRIMER_PROYECTO
 
         
         private void BtnModificar_Click_1(object sender, EventArgs e)
-        {
+        {    
             estudianteEnEdicionBindingSource.EndEdit();
 
             //enlazamos los controles
             EstudianteBindingSource.DataSource = _estudiante;
+
             var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
-            encontrado = _estudiante;
+
+            _estudiante.EstudianteId = encontrado.EstudianteId;   
+
             EstudianteBindingSource.DataSource = _estudiante;
 
             _estudiante.Validar();
