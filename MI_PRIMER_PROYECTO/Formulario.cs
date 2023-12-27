@@ -117,15 +117,21 @@ namespace MI_PRIMER_PROYECTO
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {    
             estudianteEnEdicionBindingSource.EndEdit();
-
-            //enlazamos los controles
+            
+                //estudianteEnEdicionBindingSource.RemoveAt(0);
+               
+                estudianteEnEdicionBindingSource.ResetBindings(false);
+            
             EstudianteBindingSource.DataSource = _estudiante;
 
-            var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
+            ////enlazamos los controles
+            //EstudianteBindingSource.DataSource = _estudiante;
 
-            _estudiante.EstudianteId = encontrado.EstudianteId;   
+            //var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
 
-            EstudianteBindingSource.DataSource = _estudiante;
+            //_estudiante.EstudianteId = encontrado.EstudianteId;   
+
+
 
             _estudiante.Validar();
 
