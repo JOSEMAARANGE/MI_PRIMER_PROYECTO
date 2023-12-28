@@ -35,7 +35,7 @@ namespace LOGICA
         public DateTime FechaDeNacimiento { get; set; }
         public DateTime FechaDeInscripcion { get; set; }
         public string MateriaCursada { get; set; }
-        
+       
 
         public object Clone()
         {
@@ -112,36 +112,24 @@ namespace LOGICA
        
         public class EstudianteList : List<Estudiante>
         {
-            public class Materia
-            {
-                public List<Materia> Correlativas { get; set; }
-
-                // Método para validar que la inscripción de la materia sea única
-                public bool ValidarInscripcionUnica(List<Materia> MateriaActual)
-                {
-                    if (MateriaActual.Any(m => m.MateriaActual == this.MateriaActual) && Dni.Any(m => m.Dni == this.Dni))
-                    {
-                        return false;
-                    }
-                    return true;
-                }
-
-                // Método para validar la coherencia en las correlativas de materias
-                public bool ValidarCorrelativas(List<Materia> MateriaCursada)
-                {
-                    foreach (var correlativa in Correlativas)
-                    {
-                        if (!MateriaCursada.Any(m => m.MateriaCursada == correlativa.MateriaCursada))
-                        {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-            }
         }
-
+       
+        //public List<Materia> MateriaCursada { get; set; }
+        //public bool AgregarMateriaActual(Materia MateriaActual)
+        //{
+        //    if (MateriaActual.SonCorrelativasCursadas(MateriaCursada))
+        //    {
+        //        MateriaCursada.Add(MateriaActual);
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        }
     }
+
+ 
 }
 
    
