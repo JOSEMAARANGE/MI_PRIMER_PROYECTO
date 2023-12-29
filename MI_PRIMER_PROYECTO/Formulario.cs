@@ -113,25 +113,21 @@ namespace MI_PRIMER_PROYECTO
             }
         }
 
-        
-        private void BtnModificar_Click_1(object sender, EventArgs e)
-        {    
-            estudianteEnEdicionBindingSource.EndEdit();
-            
-                //estudianteEnEdicionBindingSource.RemoveAt(0);
-               
-                estudianteEnEdicionBindingSource.ResetBindings(false);
-            
-            EstudianteBindingSource.DataSource = _estudiante;
 
-            ////enlazamos los controles
-            //EstudianteBindingSource.DataSource = _estudiante;
+        private void BtnModificar_Click_1(object sender, EventArgs e)
+        {
+            _estudiante = new Estudiante();
+            estudianteEnEdicionBindingSource.EndEdit();
+
 
             //var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
 
-            //_estudiante.EstudianteId = encontrado.EstudianteId;   
-
-
+            int id = _estudiante.EstudianteId;
+            var encontrado = from m in _estudianteList where m.EstudianteId == id select m;
+            if (encontrado != null)
+            {
+                EstudianteBindingSource.DataSource = encontrado;
+            }
 
             _estudiante.Validar();
 

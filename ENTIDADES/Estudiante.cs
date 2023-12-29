@@ -73,7 +73,7 @@ namespace LOGICA
 
             return edad;
         }
-
+        
 
         public void Validar()
 
