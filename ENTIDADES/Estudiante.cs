@@ -35,7 +35,7 @@ namespace LOGICA
         public DateTime FechaDeNacimiento { get; set; }
         public DateTime FechaDeInscripcion { get; set; }
         public string MateriaCursada { get; set; }
-       
+
 
         public object Clone()
         {
@@ -47,10 +47,10 @@ namespace LOGICA
                 Apellido = Apellido,
                 Telefono = Telefono,
                 MateriaActual = MateriaActual,
-                FechaDeNacimiento = FechaDeNacimiento,  
-                FechaDeInscripcion = FechaDeInscripcion,   
+                FechaDeNacimiento = FechaDeNacimiento,
+                FechaDeInscripcion = FechaDeInscripcion,
                 MateriaCursada = MateriaCursada,
-                
+               
             };
 
             return clon;
@@ -73,7 +73,7 @@ namespace LOGICA
 
             return edad;
         }
-        
+
 
         public void Validar()
 
@@ -82,7 +82,7 @@ namespace LOGICA
             {
                 _ = MateriaActual == "_";
             }
-            else 
+            else
             {
                 if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
                 {
@@ -92,14 +92,14 @@ namespace LOGICA
 
             }
 
-            
+
             if (Edad() < 21)
             {
 
                 throw new Exception("Es menor a 21 años, imposible continuar");
             }
-           
-         
+
+
 
             if (MateriaCursada == "MATEMATICAS II")
             {
@@ -109,28 +109,19 @@ namespace LOGICA
 
         }
 
-       
+
         public class EstudianteList : List<Estudiante>
         {
+
+
         }
-       
-        //public List<Materia> MateriaCursada { get; set; }
-        //public bool AgregarMateriaActual(Materia MateriaActual)
-        //{
-        //    if (MateriaActual.SonCorrelativasCursadas(MateriaCursada))
-        //    {
-        //        MateriaCursada.Add(MateriaActual);
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        }
+
+
     }
+ }
 
  
-}
+
 
    
 

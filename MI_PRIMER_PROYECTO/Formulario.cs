@@ -25,14 +25,14 @@ namespace MI_PRIMER_PROYECTO
 
     public partial class Formulario : Form
     {
-        
+
 
         Estudiante _estudiante;
 
         EstudianteList _estudianteList;
-        private int fila;
-        private IEnumerable<object> lstCentral;
        
+       
+
 
         public Formulario()
         {
@@ -48,7 +48,7 @@ namespace MI_PRIMER_PROYECTO
 
         public void Nuevoestudiante()
         {
-          
+
             //creamos el nuevo estudiante
             _estudiante = new Estudiante();
 
@@ -146,35 +146,35 @@ namespace MI_PRIMER_PROYECTO
             else if (dialogResult == DialogResult.No)
             {
 
-                return;  
+                return;
 
             }
-            
+
         }
 
         private void AgregarBotton_Click(object sender, EventArgs e)
         {
 
             // Verificar la acción a realizar
-            if (MateriasComboBox.Text == "MATEMATICA II") 
+            if (MateriasComboBox.Text == "MATEMATICA II")
             {
                 DialogResult dialogResult = MessageBox.Show("Aprobo MATEMATICAS I?", "Necesitas matematicas I", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
 
                 {
                     MessageBox.Show("Registrado");
-                 }
-                 else
-                 {
+                }
+                else
+                {
                     MessageBox.Show("Debe tener MATEMATICAS I aprobada");
-                 }
-                
+                }
+
                 if (dialogResult == DialogResult.No)
                 {
                     return;
                 }
             }
-            
+
 
             //Antes de agregar, validamos el estudiante para que todo este bien.
             try
@@ -188,7 +188,7 @@ namespace MI_PRIMER_PROYECTO
 
                 return;
             }
-            if (AprobadoComboBox.Text == "SI" )
+            if (AprobadoComboBox.Text == "SI")
             {
                 MateriaCursadaTextBox.Text = MateriasComboBox.Text;
                 MateriasComboBox.Text = null;
@@ -199,7 +199,7 @@ namespace MI_PRIMER_PROYECTO
             {
                 MessageBox.Show("Materia no aprobada, queda en Materia actual");
             }
-
+              Correlativa();
             //Se valido correctamente, por lo que agregamos el estudiante a la "grilla"
             estudianteEnEdicionBindingSource.EndEdit();
             EstudianteBindingSource.Add(_estudiante);
@@ -217,21 +217,56 @@ namespace MI_PRIMER_PROYECTO
                 //creamos el nuevo estudiante
                 var estudianteEnGrilla = (Estudiante)EstudianteBindingSource.Current;
 
-                _estudiante = (Estudiante)((ICloneable) EstudianteBindingSource.Current).Clone();
-                               
+                _estudiante = (Estudiante)((ICloneable)EstudianteBindingSource.Current).Clone();
+
                 //enlazamos los controles
                 estudianteEnEdicionBindingSource.DataSource = _estudiante;
-                
+
 
                 ModificarBotton.Enabled = true;
 
             }
-           
+
         }
 
-        private void estudianteGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        public void Correlativa()
+
         {
+            int m = 0;
+            int n = estudianteGridView.Rows.Count - 1;
+            int k;
+            string estaFila, unaFila;
+
+            while (m < n)
+            {
+                k = 1;
+                estaFila = String.Empty;
+
+                // Relleno la cadena con los datos de toda la fila
+                for (int i = 0; i < estudianteGridView.Columns.Count; i++)
+                    estaFila = String.Concat(estaFila, estudianteGridView.Rows[m].Cells[i].Value.ToString());
+
+                while (k < n)
+                {
+                    unaFila = String.Empty;
+                    for (int i = 0; i < estudianteGridView.Columns.Count; i++)
+                        unaFila =
+                   String.Concat(unaFila, estudianteGridView.Rows[k].Cells[i].Value.ToString());
+
+                    if (String.Compare(estaFila, unaFila) == 0 && k != m)
+                    {
+                        MessageBox.Show("ALUMNO YA MATRICULADO");
+                        n--;
+                    }
+                    k++;
+                }
+                m++;
+            }
+
 
         }
+
     }
+   
 }
+         
