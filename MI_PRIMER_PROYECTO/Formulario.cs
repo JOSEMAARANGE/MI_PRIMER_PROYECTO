@@ -118,7 +118,7 @@ namespace MI_PRIMER_PROYECTO
         {
             _estudiante = new Estudiante();
             estudianteEnEdicionBindingSource.EndEdit();
-
+            
 
             //var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
 
@@ -128,8 +128,6 @@ namespace MI_PRIMER_PROYECTO
             {
                 EstudianteBindingSource.DataSource = encontrado;
             }
-
-            _estudiante.Validar();
 
             Nuevoestudiante();
 
@@ -154,7 +152,7 @@ namespace MI_PRIMER_PROYECTO
 
         private void AgregarBotton_Click(object sender, EventArgs e)
         {
-
+            estudianteEnEdicionBindingSource.EndEdit();
             // Verificar la acción a realizar
             if (MateriasComboBox.Text == "MATEMATICA II")
             {
@@ -200,33 +198,10 @@ namespace MI_PRIMER_PROYECTO
                 MessageBox.Show("Materia no aprobada, queda en Materia actual");
             }
               Correlativa();
-            //Se valido correctamente, por lo que agregamos el estudiante a la "grilla"
-            estudianteEnEdicionBindingSource.EndEdit();
+            //Se valido correctamente, por lo que agregamos el estudiante a la "grilla" 
             EstudianteBindingSource.Add(_estudiante);
             //Dejamos todo listo para agregar otro estudiante mas
             Nuevoestudiante();
-        }
-
-        private void estudianteGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Se procedera a cargar los campos para su modificacion ?", "Confirma?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-
-                //creamos el nuevo estudiante
-                var estudianteEnGrilla = (Estudiante)EstudianteBindingSource.Current;
-
-                _estudiante = (Estudiante)((ICloneable)EstudianteBindingSource.Current).Clone();
-
-                //enlazamos los controles
-                estudianteEnEdicionBindingSource.DataSource = _estudiante;
-
-
-                ModificarBotton.Enabled = true;
-
-            }
-
         }
 
         public void Correlativa()
@@ -266,6 +241,28 @@ namespace MI_PRIMER_PROYECTO
 
         }
 
+
+        private void estudianteGridView_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Se procedera a cargar los campos para su modificacion ?", "Confirma?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                //creamos el nuevo estudiante
+                var estudianteEnGrilla = (Estudiante)EstudianteBindingSource.Current;
+
+                _estudiante = (Estudiante)((ICloneable)EstudianteBindingSource.Current).Clone();
+
+                //enlazamos los controles
+                estudianteEnEdicionBindingSource.DataSource = _estudiante;
+
+
+                ModificarBotton.Enabled = true;
+
+            }
+
+        }
     }
    
 }

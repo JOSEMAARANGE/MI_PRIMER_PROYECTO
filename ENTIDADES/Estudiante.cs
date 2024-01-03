@@ -77,12 +77,6 @@ namespace LOGICA
 
         public void Validar()
 
-        {
-            if (MateriaActual == "")
-            {
-                _ = MateriaActual == "_";
-            }
-            else
             {
                 if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
                 {
@@ -90,7 +84,7 @@ namespace LOGICA
                     throw new Exception("Debe llenar todos los campos");
                 }
 
-            }
+            
 
 
             if (Edad() < 21)
