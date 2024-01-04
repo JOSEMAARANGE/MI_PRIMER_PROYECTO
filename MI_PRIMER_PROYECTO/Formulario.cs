@@ -120,10 +120,8 @@ namespace MI_PRIMER_PROYECTO
             estudianteEnEdicionBindingSource.EndEdit();
             
 
-            //var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
+            var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
 
-            int id = _estudiante.EstudianteId;
-            var encontrado = from m in _estudianteList where m.EstudianteId == id select m;
             if (encontrado != null)
             {
                 EstudianteBindingSource.DataSource = encontrado;
