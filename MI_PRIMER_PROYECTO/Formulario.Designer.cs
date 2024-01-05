@@ -342,6 +342,7 @@ namespace MI_PRIMER_PROYECTO
             this.MateriasComboBox.Name = "MateriasComboBox";
             this.MateriasComboBox.Size = new System.Drawing.Size(200, 21);
             this.MateriasComboBox.TabIndex = 16;
+            this.MateriasComboBox.SelectedIndexChanged += new System.EventHandler(this.MateriasComboBox_SelectedIndexChanged);
             // 
             // MateriasLabel
             // 

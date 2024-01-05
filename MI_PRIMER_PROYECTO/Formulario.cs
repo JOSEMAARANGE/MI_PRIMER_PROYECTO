@@ -118,15 +118,12 @@ namespace MI_PRIMER_PROYECTO
         {
             _estudiante = new Estudiante();
             estudianteEnEdicionBindingSource.EndEdit();
-            
 
-            var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
+            //var encontrado = _estudianteList.Where(estudiante => estudiante.EstudianteId == _estudiante.EstudianteId).ToList()[0];
+    
+            EstudianteBindingSource.DataSource = estudianteEnEdicionBindingSource.DataSource;
 
-            if (encontrado != null)
-            {
-                EstudianteBindingSource.DataSource = encontrado;
-            }
-
+           
             Nuevoestudiante();
 
         }
@@ -259,6 +256,11 @@ namespace MI_PRIMER_PROYECTO
                 ModificarBotton.Enabled = true;
 
             }
+
+        }
+
+        private void MateriasComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
