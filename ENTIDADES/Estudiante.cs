@@ -21,6 +21,7 @@ using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
+
 namespace LOGICA
 {
 
@@ -35,8 +36,55 @@ namespace LOGICA
         public DateTime FechaDeNacimiento { get; set; }
         public DateTime FechaDeInscripcion { get; set; }
         public string MateriaCursada { get; set; }
+        public class Materia
+        {
+            public string Descripcion { get; set; }
+            public List<Materia> Correlativas { get; set; }
+        }
 
+        public class Validador
+        {
+            public bool InscripcionUnica(List<Materia> materias, Materia nuevaMateria)
+            {
+                return !materias.Any(m => m.Descripcion == nuevaMateria.Descripcion);
+            }
 
+            public bool EsCoherenteCorrelativas(Materia materia)
+            {
+                // Asegura que ninguna de las correlativas de la materia es la misma materia
+                return !materia.Correlativas.Any(c => c.Descripcion == materia.Descripcion);
+            }
+        }
+          public class Programa
+          {
+            static void Main(string[] args)
+            {
+                // Crear una lista de materias
+                List<Materia> materias = new List<Materia>();
+
+                // Crear una nueva materia
+                Materia nuevaMateria = new Materia
+                {
+                    Descripcion = "MATEMATICAS II",
+                    Correlativas = new List<Materia>()
+                };
+
+                // Crear un validador
+                Validador validador = new Validador();
+
+                // Verificar si la descripción de la materia es única
+                if (!validador.InscripcionUnica(materias, nuevaMateria))
+                {
+                    Console.WriteLine("La inscripción de la materia no es única.");
+                }
+
+                // Verificar si las correlativas de la materia son coherentes
+                if (!validador.EsCoherenteCorrelativas(nuevaMateria))
+                {
+                    Console.WriteLine("Las correlativas de la materia no son coherentes.");
+                }
+            }
+        }
         public object Clone()
         {
             var clon = new Estudiante
@@ -100,6 +148,7 @@ namespace LOGICA
 
                 throw new Exception("Debe tener aprobada MATEMATICAS I");
             }
+            
 
         }
 

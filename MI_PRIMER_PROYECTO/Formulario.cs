@@ -116,6 +116,7 @@ namespace MI_PRIMER_PROYECTO
 
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {
+            
             _estudiante = new Estudiante();
             estudianteEnEdicionBindingSource.EndEdit();
 
@@ -147,6 +148,7 @@ namespace MI_PRIMER_PROYECTO
 
         private void AgregarBotton_Click(object sender, EventArgs e)
         {
+            
             estudianteEnEdicionBindingSource.EndEdit();
             // Verificar la acción a realizar
             if (MateriasComboBox.Text == "MATEMATICA II")
@@ -173,7 +175,7 @@ namespace MI_PRIMER_PROYECTO
             try
             {
                 _estudiante.Validar();
-
+               
             }
             catch (Exception ez)
             {
@@ -192,49 +194,14 @@ namespace MI_PRIMER_PROYECTO
             {
                 MessageBox.Show("Materia no aprobada, queda en Materia actual");
             }
-              Correlativa();
+            
             //Se valido correctamente, por lo que agregamos el estudiante a la "grilla" 
             EstudianteBindingSource.Add(_estudiante);
             //Dejamos todo listo para agregar otro estudiante mas
             Nuevoestudiante();
         }
 
-        public void Correlativa()
-
-        {
-            int m = 0;
-            int n = estudianteGridView.Rows.Count - 1;
-            int k;
-            string estaFila, unaFila;
-
-            while (m < n)
-            {
-                k = 1;
-                estaFila = String.Empty;
-
-                // Relleno la cadena con los datos de toda la fila
-                for (int i = 0; i < estudianteGridView.Columns.Count; i++)
-                    estaFila = String.Concat(estaFila, estudianteGridView.Rows[m].Cells[i].Value.ToString());
-
-                while (k < n)
-                {
-                    unaFila = String.Empty;
-                    for (int i = 0; i < estudianteGridView.Columns.Count; i++)
-                        unaFila =
-                   String.Concat(unaFila, estudianteGridView.Rows[k].Cells[i].Value.ToString());
-
-                    if (String.Compare(estaFila, unaFila) == 0 && k != m)
-                    {
-                        MessageBox.Show("ALUMNO YA MATRICULADO");
-                        n--;
-                    }
-                    k++;
-                }
-                m++;
-            }
-
-
-        }
+       
 
 
         private void estudianteGridView_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
