@@ -72,16 +72,16 @@ namespace LOGICA
                 // Crear un validador
                 Validador validador = new Validador();
 
-                // Verificar si la descripción de la materia es única
+                // Verificar si la inscripción de la materia es única
                 if (!validador.InscripcionUnica(materias, nuevaMateria))
                 {
-                    Console.WriteLine("La inscripción de la materia no es única.");
+                    throw new Exception("La inscripción de la materia no es única.");
                 }
 
                 // Verificar si las correlativas de la materia son coherentes
                 if (!validador.EsCoherenteCorrelativas(nuevaMateria))
                 {
-                    Console.WriteLine("Las correlativas de la materia no son coherentes.");
+                    throw new Exception("Las correlativas de la materia no son coherentes.");
                 }
             }
         }

@@ -175,7 +175,7 @@ namespace MI_PRIMER_PROYECTO
             try
             {
                 _estudiante.Validar();
-               
+              
             }
             catch (Exception ez)
             {
