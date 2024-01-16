@@ -496,7 +496,7 @@ namespace MI_PRIMER_PROYECTO
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.btnSalir);
             this.Name = "Formulario";
-            this.Text = "FORMULARIO";
+            this.Text = "0";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).EndInit();
             this.Logo.ResumeLayout(false);

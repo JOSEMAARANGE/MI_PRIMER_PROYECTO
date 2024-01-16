@@ -40,7 +40,7 @@ namespace LOGICA
         {
             public string Descripcion { get; set; }
             public List<Materia> Correlativas { get; set; }
-        }
+       }
 
         public class Validador
         {
@@ -125,6 +125,10 @@ namespace LOGICA
 
         public void Validar()
 
+
+
+
+
             {
                 if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
                 {
@@ -155,7 +159,7 @@ namespace LOGICA
 
         public class EstudianteList : List<Estudiante>
         {
-
+           
 
         }
 
