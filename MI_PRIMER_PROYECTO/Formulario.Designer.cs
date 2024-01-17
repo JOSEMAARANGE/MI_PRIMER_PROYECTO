@@ -71,6 +71,8 @@ namespace MI_PRIMER_PROYECTO
             this.fechaDeInscripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaCursadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstudianteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Contabilidadbtn = new System.Windows.Forms.Button();
+            this.Comprasbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).BeginInit();
             this.Logo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -193,9 +195,9 @@ namespace MI_PRIMER_PROYECTO
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(669, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(345, 31);
+            this.label6.Size = new System.Drawing.Size(254, 31);
             this.label6.TabIndex = 1;
-            this.label6.Text = "ALTA DE ESTUDIANTES";
+            this.label6.Text = "ALTA DE SOCIOS";
             // 
             // groupBox2
             // 
@@ -486,17 +488,39 @@ namespace MI_PRIMER_PROYECTO
             // 
             this.EstudianteBindingSource.DataSource = typeof(LOGICA.Estudiante);
             // 
+            // Contabilidadbtn
+            // 
+            this.Contabilidadbtn.Location = new System.Drawing.Point(474, 503);
+            this.Contabilidadbtn.Name = "Contabilidadbtn";
+            this.Contabilidadbtn.Size = new System.Drawing.Size(75, 23);
+            this.Contabilidadbtn.TabIndex = 17;
+            this.Contabilidadbtn.Text = "Contabilidad";
+            this.Contabilidadbtn.UseVisualStyleBackColor = true;
+            this.Contabilidadbtn.Click += new System.EventHandler(this.Contabilidadbtn_Click);
+            // 
+            // Comprasbtn
+            // 
+            this.Comprasbtn.Location = new System.Drawing.Point(590, 504);
+            this.Comprasbtn.Name = "Comprasbtn";
+            this.Comprasbtn.Size = new System.Drawing.Size(75, 23);
+            this.Comprasbtn.TabIndex = 18;
+            this.Comprasbtn.Text = "Compras";
+            this.Comprasbtn.UseVisualStyleBackColor = true;
+            this.Comprasbtn.Click += new System.EventHandler(this.Comprasbtn_Click);
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1331, 549);
+            this.Controls.Add(this.Comprasbtn);
+            this.Controls.Add(this.Contabilidadbtn);
             this.Controls.Add(this.estudianteGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.btnSalir);
             this.Name = "Formulario";
-            this.Text = "0";
+            this.Text = "ALTA DE SOCIOS";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).EndInit();
             this.Logo.ResumeLayout(false);
@@ -553,6 +577,8 @@ namespace MI_PRIMER_PROYECTO
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeNacimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeInscripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Contabilidadbtn;
+        private System.Windows.Forms.Button Comprasbtn;
     }
 }
 

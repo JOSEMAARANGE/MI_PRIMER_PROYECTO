@@ -230,7 +230,21 @@ namespace MI_PRIMER_PROYECTO
         {
 
         }
+
+        private void Contabilidadbtn_Click(object sender, EventArgs e)
+        {
+            Contabilidad Contabilidad = new Contabilidad();
+            Contabilidad.Show(this);
+
+        }
+
+        private void Comprasbtn_Click(object sender, EventArgs e)
+        {
+            Compras Compras = new Compras();
+            Compras.Show(this);
+        }
     }
-   
 }
+   
+
          

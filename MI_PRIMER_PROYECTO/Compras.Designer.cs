@@ -33,6 +33,7 @@
             this.TotalesOrdenesComprasbtn = new System.Windows.Forms.Button();
             this.TotalesMaterialesoServiciosbtn = new System.Windows.Forms.Button();
             this.MesDeCortedateTime = new System.Windows.Forms.DateTimePicker();
+            this.SalirComprasbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,11 +82,22 @@
             this.MesDeCortedateTime.Size = new System.Drawing.Size(200, 20);
             this.MesDeCortedateTime.TabIndex = 4;
             // 
+            // SalirComprasbtn
+            // 
+            this.SalirComprasbtn.Location = new System.Drawing.Point(920, 469);
+            this.SalirComprasbtn.Name = "SalirComprasbtn";
+            this.SalirComprasbtn.Size = new System.Drawing.Size(75, 23);
+            this.SalirComprasbtn.TabIndex = 5;
+            this.SalirComprasbtn.Text = "SALIR";
+            this.SalirComprasbtn.UseVisualStyleBackColor = true;
+            this.SalirComprasbtn.Click += new System.EventHandler(this.SalirComprasbtn_Click);
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 513);
+            this.Controls.Add(this.SalirComprasbtn);
             this.Controls.Add(this.MesDeCortedateTime);
             this.Controls.Add(this.TotalesMaterialesoServiciosbtn);
             this.Controls.Add(this.TotalesOrdenesComprasbtn);
@@ -106,5 +118,6 @@
         private System.Windows.Forms.Button TotalesOrdenesComprasbtn;
         private System.Windows.Forms.Button TotalesMaterialesoServiciosbtn;
         private System.Windows.Forms.DateTimePicker MesDeCortedateTime;
+        private System.Windows.Forms.Button SalirComprasbtn;
     }
 }

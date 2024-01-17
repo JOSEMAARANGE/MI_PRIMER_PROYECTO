@@ -16,5 +16,10 @@ namespace MI_PRIMER_PROYECTO
         {
             InitializeComponent();
         }
+
+        private void SalirComprasbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
