@@ -125,18 +125,12 @@ namespace LOGICA
 
         public void Validar()
 
-
-
-
-
             {
                 if (string.IsNullOrEmpty(Dni) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || string.IsNullOrEmpty(Telefono) || string.IsNullOrEmpty(MateriaActual))
                 {
 
                     throw new Exception("Debe llenar todos los campos");
                 }
-
-            
 
 
             if (Edad() < 21)
@@ -153,10 +147,9 @@ namespace LOGICA
                 throw new Exception("Debe tener aprobada MATEMATICAS I");
             }
             
-
         }
 
-
+        
         public class EstudianteList : List<Estudiante>
         {
            

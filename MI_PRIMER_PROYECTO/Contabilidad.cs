@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LOGICA;
 using SpreadsheetLight;
+using System.Data.OleDb;
+
 
 namespace MI_PRIMER_PROYECTO
-{
+{       
     public partial class Contabilidad : Form
     {
         public Contabilidad()
@@ -25,42 +28,38 @@ namespace MI_PRIMER_PROYECTO
 
         private void CargarContablidadbtn_Click(object sender, EventArgs e)
         {
-            SLDocument sl = new SLDocument(@"C:\Users\jarange\Desktop\Contabilidad.xlsx");
-            SLWorksheetStatistics stats = sl.GetWorksheetStatistics();
-
-            DataTable dt = new DataTable();
-            for (int i = 1; i <= stats.EndColumnIndex; ++i)
+           
+            try
             {
-                dt.Columns.Add(new DataColumn());
-            }
+                SLDocument sl = new SLDocument(@"C:\Users\jarange\Desktop\Contabilidad.xlsx");
+                SLWorksheetStatistics stats = sl.GetWorksheetStatistics();
 
-            for (int i = 1; i <= stats.EndRowIndex; ++i)
-            {
-                DataRow dr = dt.NewRow();
-                for (int j = 1; j <= stats.EndColumnIndex; ++j)
+                DataTable dt = new DataTable();
+                for (int i = 1; i <= stats.EndColumnIndex; ++i)
                 {
-                    dr[j - 1] = sl.GetCellValueAsString(i, j);
+                    dt.Columns.Add(new DataColumn());
                 }
-                dt.Rows.Add(dr);
-            }
 
-
-            if (dialogResult == DialogResult.Yes)
-
-            {
-                MessageBox.Show("Formato del excel correcto, se cargo el asiento");
+                for (int i = 1; i <= stats.EndRowIndex; ++i)
+                {
+                    DataRow dr = dt.NewRow();
+                    for (int j = 1; j <= stats.EndColumnIndex; ++j)
+                    {
+                        dr[j - 1] = sl.GetCellValueAsString(i, j);
+                    }
+                    dt.Rows.Add(dr);
+                }
                 ContabilidadDataGridView.DataSource = dt;
+                 
+                MessageBox.Show("La operación fue exitosa.");
+                MessageBox.Show("Resumen de los datos cargados: " + dt);
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("El formato es incorrecto o faltan datos obligatorios");
+                throw new Exception("El formato es incorrecto o si faltan datos obligatorios.");
             }
 
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-            
+
         }
     }
 }
