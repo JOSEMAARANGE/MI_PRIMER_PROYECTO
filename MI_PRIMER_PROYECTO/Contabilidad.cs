@@ -16,6 +16,8 @@ namespace MI_PRIMER_PROYECTO
 {       
     public partial class Contabilidad : Form
     {
+        public object printDoc { get; private set; }
+
         public Contabilidad()
         {
             InitializeComponent();
@@ -45,15 +47,17 @@ namespace MI_PRIMER_PROYECTO
                     DataRow dr = dt.NewRow();
                     for (int j = 1; j <= stats.EndColumnIndex; ++j)
                     {
-                        dr[j - 1] = sl.GetCellValueAsString(i, j);
+                        dr[j - 1] = sl.GetCellValueAsString(i, j); 
                       
                     }
                     dt.Rows.Add(dr);
+                  
                 }
                 ContabilidadDataGridView.DataSource = dt;
 
                 MessageBox.Show("La operación fue exitosa.");
-                MessageBox.Show("Resumen de los datos cargados: " + ContabilidadDataGridView.DataSource);
+               
+               
             }
             catch (Exception)
             {

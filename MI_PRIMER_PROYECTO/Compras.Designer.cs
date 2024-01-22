@@ -51,7 +51,7 @@
             // lblMesdeCorte
             // 
             this.lblMesdeCorte.AutoSize = true;
-            this.lblMesdeCorte.Location = new System.Drawing.Point(205, 126);
+            this.lblMesdeCorte.Location = new System.Drawing.Point(183, 127);
             this.lblMesdeCorte.Name = "lblMesdeCorte";
             this.lblMesdeCorte.Size = new System.Drawing.Size(70, 13);
             this.lblMesdeCorte.TabIndex = 1;
@@ -77,10 +77,13 @@
             // 
             // MesDeCortedateTime
             // 
-            this.MesDeCortedateTime.Location = new System.Drawing.Point(281, 120);
+            this.MesDeCortedateTime.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Inch, ((byte)(0)));
+            this.MesDeCortedateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.MesDeCortedateTime.Location = new System.Drawing.Point(316, 120);
             this.MesDeCortedateTime.Name = "MesDeCortedateTime";
-            this.MesDeCortedateTime.Size = new System.Drawing.Size(200, 20);
+            this.MesDeCortedateTime.Size = new System.Drawing.Size(83, 20);
             this.MesDeCortedateTime.TabIndex = 4;
+            this.MesDeCortedateTime.Value = new System.DateTime(2024, 1, 22, 13, 11, 3, 0);
             // 
             // SalirComprasbtn
             // 
