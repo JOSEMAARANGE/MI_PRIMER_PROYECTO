@@ -86,6 +86,7 @@
             this.ConfirmarAsientoContabilidadbtn.TabIndex = 4;
             this.ConfirmarAsientoContabilidadbtn.Text = "Confirmar Asiento";
             this.ConfirmarAsientoContabilidadbtn.UseVisualStyleBackColor = true;
+            this.ConfirmarAsientoContabilidadbtn.Click += new System.EventHandler(this.ConfirmarAsientoContabilidadbtn_Click);
             // 
             // pictureBox1
             // 

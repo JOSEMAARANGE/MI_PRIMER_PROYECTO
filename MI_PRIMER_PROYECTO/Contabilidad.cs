@@ -66,5 +66,22 @@ namespace MI_PRIMER_PROYECTO
 
 
         }
+
+        private void ConfirmarAsientoContabilidadbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Desea confirmar el asiento?", "ASIENTO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+
+            {
+                MessageBox.Show("Asiento Confirmado");
+                
+            }
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+            
+        }
     }
 }

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ComprasDataGridView = new System.Windows.Forms.DataGridView();
             this.lblMesdeCorte = new System.Windows.Forms.Label();
             this.TotalesOrdenesComprasbtn = new System.Windows.Forms.Button();
             this.TotalesMaterialesoServiciosbtn = new System.Windows.Forms.Button();
             this.MesDeCortedateTime = new System.Windows.Forms.DateTimePicker();
             this.SalirComprasbtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComprasDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // ComprasDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(545, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(486, 350);
-            this.dataGridView1.TabIndex = 0;
+            this.ComprasDataGridView.AllowUserToAddRows = false;
+            this.ComprasDataGridView.AllowUserToDeleteRows = false;
+            this.ComprasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ComprasDataGridView.Location = new System.Drawing.Point(545, 99);
+            this.ComprasDataGridView.Name = "ComprasDataGridView";
+            this.ComprasDataGridView.ReadOnly = true;
+            this.ComprasDataGridView.Size = new System.Drawing.Size(486, 350);
+            this.ComprasDataGridView.TabIndex = 0;
             // 
             // lblMesdeCorte
             // 
@@ -105,10 +105,10 @@
             this.Controls.Add(this.TotalesMaterialesoServiciosbtn);
             this.Controls.Add(this.TotalesOrdenesComprasbtn);
             this.Controls.Add(this.lblMesdeCorte);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ComprasDataGridView);
             this.Name = "Compras";
             this.Text = "COMPRAS";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComprasDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +116,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ComprasDataGridView;
         private System.Windows.Forms.Label lblMesdeCorte;
         private System.Windows.Forms.Button TotalesOrdenesComprasbtn;
         private System.Windows.Forms.Button TotalesMaterialesoServiciosbtn;

@@ -73,6 +73,7 @@ namespace MI_PRIMER_PROYECTO
             this.EstudianteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Contabilidadbtn = new System.Windows.Forms.Button();
             this.Comprasbtn = new System.Windows.Forms.Button();
+            this.AreasGroupBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteEnEdicionBindingSource)).BeginInit();
             this.Logo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,6 +81,7 @@ namespace MI_PRIMER_PROYECTO
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).BeginInit();
+            this.AreasGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // DniTextbox
@@ -490,35 +492,54 @@ namespace MI_PRIMER_PROYECTO
             // 
             // Contabilidadbtn
             // 
-            this.Contabilidadbtn.Location = new System.Drawing.Point(474, 503);
+            this.Contabilidadbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Contabilidadbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Contabilidadbtn.ForeColor = System.Drawing.Color.Blue;
+            this.Contabilidadbtn.Location = new System.Drawing.Point(31, 40);
             this.Contabilidadbtn.Name = "Contabilidadbtn";
-            this.Contabilidadbtn.Size = new System.Drawing.Size(75, 23);
+            this.Contabilidadbtn.Size = new System.Drawing.Size(120, 34);
             this.Contabilidadbtn.TabIndex = 17;
             this.Contabilidadbtn.Text = "Contabilidad";
-            this.Contabilidadbtn.UseVisualStyleBackColor = true;
+            this.Contabilidadbtn.UseVisualStyleBackColor = false;
             this.Contabilidadbtn.Click += new System.EventHandler(this.Contabilidadbtn_Click);
             // 
             // Comprasbtn
             // 
-            this.Comprasbtn.Location = new System.Drawing.Point(590, 504);
+            this.Comprasbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Comprasbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Comprasbtn.ForeColor = System.Drawing.Color.Blue;
+            this.Comprasbtn.Location = new System.Drawing.Point(174, 40);
             this.Comprasbtn.Name = "Comprasbtn";
-            this.Comprasbtn.Size = new System.Drawing.Size(75, 23);
+            this.Comprasbtn.Size = new System.Drawing.Size(101, 35);
             this.Comprasbtn.TabIndex = 18;
             this.Comprasbtn.Text = "Compras";
-            this.Comprasbtn.UseVisualStyleBackColor = true;
+            this.Comprasbtn.UseVisualStyleBackColor = false;
             this.Comprasbtn.Click += new System.EventHandler(this.Comprasbtn_Click);
+            // 
+            // AreasGroupBox
+            // 
+            this.AreasGroupBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AreasGroupBox.Controls.Add(this.Contabilidadbtn);
+            this.AreasGroupBox.Controls.Add(this.Comprasbtn);
+            this.AreasGroupBox.ForeColor = System.Drawing.Color.Honeydew;
+            this.AreasGroupBox.Location = new System.Drawing.Point(442, 453);
+            this.AreasGroupBox.Name = "AreasGroupBox";
+            this.AreasGroupBox.Size = new System.Drawing.Size(315, 93);
+            this.AreasGroupBox.TabIndex = 20;
+            this.AreasGroupBox.TabStop = false;
+            this.AreasGroupBox.Text = "OTRAS AREAS";
             // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1331, 549);
-            this.Controls.Add(this.Comprasbtn);
-            this.Controls.Add(this.Contabilidadbtn);
+            this.Controls.Add(this.AreasGroupBox);
             this.Controls.Add(this.estudianteGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.btnSalir);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "Formulario";
             this.Text = "ALTA DE SOCIOS";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -532,6 +553,7 @@ namespace MI_PRIMER_PROYECTO
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.estudianteGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EstudianteBindingSource)).EndInit();
+            this.AreasGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -579,6 +601,7 @@ namespace MI_PRIMER_PROYECTO
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaCursadaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Contabilidadbtn;
         private System.Windows.Forms.Button Comprasbtn;
+        private System.Windows.Forms.GroupBox AreasGroupBox;
     }
 }
 
