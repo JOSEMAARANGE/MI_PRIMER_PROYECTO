@@ -30,7 +30,8 @@ namespace MI_PRIMER_PROYECTO
 
         private void CargarContablidadbtn_Click(object sender, EventArgs e)
         {
-           
+            
+
             try
             {
                 SLDocument sl = new SLDocument(@"C:\Users\jarange\Desktop\Contabilidad.xlsx");
@@ -53,6 +54,7 @@ namespace MI_PRIMER_PROYECTO
                     dt.Rows.Add(dr);
                   
                 }
+                  
                 ContabilidadDataGridView.DataSource = dt;
 
                 MessageBox.Show("La operación fue exitosa.");
