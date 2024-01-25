@@ -25,23 +25,7 @@ namespace ENTIDADES
     public class Contabilidad
     {
 
-        public void ValidarContabilidad()
-        {
-            string headerText =
-                ContabilidadDataGridView.Columns[e.ColumnIndex].HeaderText;
-
-            // Abort validation if cell is not in the CompanyName column.
-            if (!headerText.Equals("CompanyName")) return;
-
-            // Confirm that the cell is not empty.
-            if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            {
-                ContabilidadDataGridView.Rows[e.RowIndex].ErrorText =
-                    "Company Name must not be empty";
-                e.Cancel = true;
-            }
-
-        }
+       
 
 
 

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using LOGICA;
 using SpreadsheetLight;
 using System.Data.OleDb;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
+using AventStack.ExtentReports.Gherkin.Model;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 
 
 namespace MI_PRIMER_PROYECTO
@@ -31,6 +35,7 @@ namespace MI_PRIMER_PROYECTO
         private void CargarContablidadbtn_Click(object sender, EventArgs e)
         {
             
+             
 
             try
             {
@@ -68,13 +73,24 @@ namespace MI_PRIMER_PROYECTO
 
 
         }
-
-        private void ConfirmarAsientoContabilidadbtn_Click(object sender, EventArgs e)
+        private bool DataGrid_Vacio(DataGridView dgv)
         {
+            foreach (DataGridViewRow row in ContabilidadDataGridView.Rows)
+            {
+                if (!string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void ConfirmarAsientoContabilidadbtn_Click(object sender, EventArgs e)
+        {     
             DialogResult dialogResult = MessageBox.Show("Desea confirmar el asiento?", "ASIENTO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
+            if ((dialogResult == DialogResult.Yes) && (ContabilidadDataGridView.Rows.Count == ""))
 
             {
+             
                 MessageBox.Show("Asiento Confirmado");
                 
             }
@@ -85,5 +101,6 @@ namespace MI_PRIMER_PROYECTO
             }
             
         }
+
     }
 }
