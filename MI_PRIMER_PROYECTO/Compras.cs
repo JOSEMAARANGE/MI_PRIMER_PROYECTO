@@ -37,7 +37,15 @@ namespace MI_PRIMER_PROYECTO
             this.Close();
         }
 
-        
+        private void TotalesOrdenesComprasbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TotalesMaterialesoServiciosbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

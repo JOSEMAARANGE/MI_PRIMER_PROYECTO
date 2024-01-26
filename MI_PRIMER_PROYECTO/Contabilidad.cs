@@ -14,10 +14,11 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using AventStack.ExtentReports.Gherkin.Model;
 using DocumentFormat.OpenXml.Drawing.Diagrams;
+using System.Net;
 
 
 namespace MI_PRIMER_PROYECTO
-{       
+{
     public partial class Contabilidad : Form
     {
         public object printDoc { get; private set; }
@@ -34,8 +35,8 @@ namespace MI_PRIMER_PROYECTO
 
         private void CargarContablidadbtn_Click(object sender, EventArgs e)
         {
-            
-             
+
+
 
             try
             {
@@ -53,18 +54,18 @@ namespace MI_PRIMER_PROYECTO
                     DataRow dr = dt.NewRow();
                     for (int j = 1; j <= stats.EndColumnIndex; ++j)
                     {
-                        dr[j - 1] = sl.GetCellValueAsString(i, j); 
-                      
+                        dr[j - 1] = sl.GetCellValueAsString(i, j);
+
                     }
                     dt.Rows.Add(dr);
-                  
+
                 }
-                  
+
                 ContabilidadDataGridView.DataSource = dt;
 
                 MessageBox.Show("La operación fue exitosa.");
-               
-               
+
+
             }
             catch (Exception)
             {
@@ -73,34 +74,23 @@ namespace MI_PRIMER_PROYECTO
 
 
         }
-        private bool DataGrid_Vacio(DataGridView dgv)
-        {
-            foreach (DataGridViewRow row in ContabilidadDataGridView.Rows)
-            {
-                if (!string.IsNullOrEmpty(row.Cells[1].Value.ToString()))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        
+  
         private void ConfirmarAsientoContabilidadbtn_Click(object sender, EventArgs e)
-        {     
+        {
             DialogResult dialogResult = MessageBox.Show("Desea confirmar el asiento?", "ASIENTO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if ((dialogResult == DialogResult.Yes) && (ContabilidadDataGridView.Rows.Count == ""))
+            if (dialogResult == DialogResult.Yes)
 
             {
-             
                 MessageBox.Show("Asiento Confirmado");
-                
+
             }
 
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
-            
-        }
 
+        }
     }
 }

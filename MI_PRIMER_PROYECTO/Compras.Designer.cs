@@ -65,6 +65,7 @@
             this.TotalesOrdenesComprasbtn.TabIndex = 2;
             this.TotalesOrdenesComprasbtn.Text = "Totales de las Órdenes de Compras";
             this.TotalesOrdenesComprasbtn.UseVisualStyleBackColor = true;
+            this.TotalesOrdenesComprasbtn.Click += new System.EventHandler(this.TotalesOrdenesComprasbtn_Click);
             // 
             // TotalesMaterialesoServiciosbtn
             // 
@@ -74,6 +75,7 @@
             this.TotalesMaterialesoServiciosbtn.TabIndex = 3;
             this.TotalesMaterialesoServiciosbtn.Text = "Totales de Materiales o Servicios";
             this.TotalesMaterialesoServiciosbtn.UseVisualStyleBackColor = true;
+            this.TotalesMaterialesoServiciosbtn.Click += new System.EventHandler(this.TotalesMaterialesoServiciosbtn_Click);
             // 
             // MesDeCortedateTime
             // 
