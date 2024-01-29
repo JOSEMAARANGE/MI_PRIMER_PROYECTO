@@ -59,7 +59,8 @@
             // 
             // TotalesOrdenesComprasbtn
             // 
-            this.TotalesOrdenesComprasbtn.Location = new System.Drawing.Point(186, 220);
+            this.TotalesOrdenesComprasbtn.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.TotalesOrdenesComprasbtn.Location = new System.Drawing.Point(186, 195);
             this.TotalesOrdenesComprasbtn.Name = "TotalesOrdenesComprasbtn";
             this.TotalesOrdenesComprasbtn.Size = new System.Drawing.Size(213, 23);
             this.TotalesOrdenesComprasbtn.TabIndex = 2;
@@ -69,6 +70,7 @@
             // 
             // TotalesMaterialesoServiciosbtn
             // 
+            this.TotalesMaterialesoServiciosbtn.ForeColor = System.Drawing.Color.IndianRed;
             this.TotalesMaterialesoServiciosbtn.Location = new System.Drawing.Point(186, 284);
             this.TotalesMaterialesoServiciosbtn.Name = "TotalesMaterialesoServiciosbtn";
             this.TotalesMaterialesoServiciosbtn.Size = new System.Drawing.Size(213, 23);
