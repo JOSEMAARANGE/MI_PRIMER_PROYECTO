@@ -92,5 +92,10 @@ namespace MI_PRIMER_PROYECTO
             }
 
         }
+
+        private void GuardarCambiosbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -106,6 +106,7 @@
             this.GuardarCambiosbtn.TabIndex = 6;
             this.GuardarCambiosbtn.Text = "Guardar Cambios";
             this.GuardarCambiosbtn.UseVisualStyleBackColor = true;
+            this.GuardarCambiosbtn.Click += new System.EventHandler(this.GuardarCambiosbtn_Click);
             // 
             // Contabilidad
             // 
