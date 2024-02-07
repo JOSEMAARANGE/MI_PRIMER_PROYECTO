@@ -33,7 +33,7 @@ namespace MI_PRIMER_PROYECTO
 
             // Agregar celdas a la fila
             row.Cells.Add(new DataGridViewTextBoxCell { Value = "Orden N° 1" });
-            row.Cells.Add(new DataGridViewTextBoxCell { Value = "Postes" });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = "Postes" }) ;
             row.Cells.Add(new DataGridViewTextBoxCell { Value = "23/09/2023" });
             
 
